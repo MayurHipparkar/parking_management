@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="module/header.jsp" %>
-		
+    
+<%@ include file="module/header.jsp" %>	
 		<!--start page wrapper -->
 		<div class="page-wrapper">
 			<div class="page-content">

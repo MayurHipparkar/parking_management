@@ -22,7 +22,6 @@ import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.rt.allEnum.ParkingStatus;
-import com.rt.guardDTO.AllGuardRespDTO;
 import com.rt.parkingDTO.ParkingEntryReqDTO;
 import com.rt.parkingDTO.ParkingEntryRespDTO;
 import com.rt.parkingDTO.ParkingFeeReqDTO;

@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.util.UriUtils;
 
 import com.rt.guardDTO.AddGuardReqDTO;
@@ -26,21 +27,22 @@ public class GuardServiceImplimentation implements GuardServiceInterface{
 @Autowired
 private RestTemplate restTemplate;
 
+@Autowired
+private WebClient webClient;
+
 //this is used to add guard in DB.
-	@Override
-	public String addGuard(AddGuardReqDTO addGuardReqDTO) {
-		
-		addGuardReqDTO.setRole("Guard");//default role.
-		
-		String url="http://localhost:8181/guard/add";
-		HttpHeaders header=new HttpHeaders();
-		header.setContentType(MediaType.APPLICATION_JSON);
-		
-		HttpEntity<AddGuardReqDTO> request=new HttpEntity<AddGuardReqDTO>(addGuardReqDTO,header);
-		
-		return restTemplate.postForObject(url, request, String.class);
-	
-	}
+@Override
+public String addGuard(AddGuardReqDTO addGuardReqDTO) {
+    addGuardReqDTO.setRole("Guard");
+    System.out.println("webclient method");
+    return webClient.post()
+            .uri("/guard/add")
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(addGuardReqDTO)
+            .retrieve()
+            .bodyToMono(String.class)
+            .block();
+}
 	
 // this is for fetch all guard record only for admin with pagination.
 	@Override

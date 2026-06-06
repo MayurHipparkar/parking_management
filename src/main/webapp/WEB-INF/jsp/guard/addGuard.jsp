@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrapFiles/bootstrap.min.css" />
 <%@ include file="../module/header.jsp" %>
 
+
 <style>
     .main-container {
         width: 60%;

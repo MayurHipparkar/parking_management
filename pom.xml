@@ -79,6 +79,12 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
+        
+		<!-- Spring WebFlux (for WebClient, Reactive APIs) -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
 
         <!-- Test -->
         <dependency>
